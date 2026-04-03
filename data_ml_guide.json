@@ -1,0 +1,632 @@
+{
+  "id": "root",
+  "label": "Artificial Intelligence",
+  "subtitle": "Dominio raíz",
+  "description": "Paraguas que agrupa todos los campos donde las máquinas simulan capacidades cognitivas humanas: aprender, razonar, percibir y actuar.",
+  "example": "Cuando un banco aprueba un crédito automáticamente, cuando Spotify recomienda una canción, o cuando un asistente de voz entiende lo que dices — todos son ejemplos de IA en acción.",
+  "color": "#60A5FA",
+  "children": [
+    {
+      "id": "ml",
+      "label": "Machine Learning",
+      "subtitle": "1.1 — Técnica de aprendizaje",
+      "description": "Los algoritmos aprenden patrones de datos sin ser programados explícitamente para cada caso. En lugar de escribir reglas, le muestras ejemplos y el modelo deduce las reglas solo.",
+      "example": "Un modelo de ML ve 10,000 transacciones etiquetadas como 'fraude' o 'legítima' y aprende a distinguirlas. Luego detecta fraude en transacciones nuevas que nunca vio.",
+      "color": "#34D399",
+      "children": [
+        {
+          "id": "ml-eje1",
+          "label": "Eje 1 — Tipo de aprendizaje",
+          "subtitle": "Cómo aprende el modelo",
+          "description": "La primera dimensión para clasificar un modelo de ML es cómo aprende: ¿necesita ejemplos con respuestas correctas? ¿descubre patrones solo? ¿aprende por prueba y error?",
+          "example": "Un mismo problema de segmentación de clientes puede resolverse con supervisado (si tienes etiquetas históricas) o no supervisado (si partes de cero). El tipo de datos disponibles determina qué enfoque usar.",
+          "color": "#34D399",
+          "children": [
+            {
+              "id": "supervisado",
+              "label": "Supervisado",
+              "subtitle": "Con datos etiquetados",
+              "description": "El modelo aprende de ejemplos donde ya conoces la respuesta correcta. Entrada + etiqueta. El modelo ajusta sus parámetros para minimizar el error entre su predicción y la respuesta real.",
+              "example": "10,000 correos etiquetados como 'spam' o 'no spam'. El modelo aprende qué palabras y patrones predicen cada categoría. Después clasifica correos nuevos solo.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "no-supervisado",
+              "label": "No Supervisado",
+              "subtitle": "Sin etiquetas previas",
+              "description": "El modelo descubre estructuras y patrones en los datos sin que nadie le diga cuál es la respuesta correcta. El objetivo es encontrar agrupaciones, compresiones o anomalías.",
+              "example": "Una empresa de retail tiene 500,000 clientes sin categorizar. Un modelo no supervisado descubre 5 grupos naturales: compradores frecuentes premium, cazadores de oferta, compradores estacionales, etc.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "refuerzo",
+              "label": "Refuerzo (RL)",
+              "subtitle": "Aprendizaje por prueba y error",
+              "description": "Un agente toma acciones en un entorno y recibe recompensas o penalizaciones. Con el tiempo aprende qué acciones maximizan la recompensa acumulada. No necesita datos etiquetados — aprende de la experiencia.",
+              "example": "Un algoritmo de trading aprende a comprar y vender acciones. Cada operación genera ganancia (recompensa) o pérdida (penalización). Después de millones de simulaciones, desarrolla una estrategia óptima.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "semi-supervisado",
+              "label": "Semi-supervisado",
+              "subtitle": "Pocos etiquetados + muchos sin etiquetar",
+              "description": "Combina una pequeña cantidad de datos etiquetados con una gran cantidad de datos sin etiquetar. Útil cuando etiquetar es costoso o lento pero los datos crudos abundan.",
+              "example": "Un hospital tiene 200 radiografías etiquetadas por médicos (costoso) y 50,000 sin etiquetar. El modelo semi-supervisado usa ambas para aprender a detectar anomalías con mucho menos esfuerzo humano.",
+              "color": "#34D399",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "ml-eje2",
+          "label": "Eje 2 — Familia de modelos",
+          "subtitle": "Cómo está construido el modelo",
+          "description": "La segunda dimensión es la arquitectura del modelo: cómo internamente representa y procesa los datos. Cada familia tiene fortalezas distintas y se elige según el tipo de datos y la complejidad del problema.",
+          "example": "Para predecir el precio de una casa con 10 variables numéricas, un modelo lineal es suficiente. Para detectar tumores en imágenes médicas, necesitas redes neuronales convolucionales. El problema dictamina la familia.",
+          "color": "#34D399",
+          "children": [
+            {
+              "id": "lineales",
+              "label": "Modelos Lineales",
+              "subtitle": "Regresión y Regresión Logística",
+              "description": "Asumen que la relación entre variables de entrada y salida es proporcional (lineal). Son simples, rápidos, interpretables y el primer modelo a probar en cualquier problema. Si funcionan bien, no hay razón para algo más complejo.",
+              "example": "Precio de venta = 150,000 + (500 × metros²) + (2,000 × años_antigüedad). Con solo dos variables el modelo explica el precio. Un gerente puede entender exactamente qué pesa más.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "arboles",
+              "label": "Modelos de Árbol",
+              "subtitle": "Decision Tree, Random Forest, XGBoost",
+              "description": "Dividen el problema en una serie de preguntas 'si/entonces' formando un árbol de decisiones. Los más usados en negocio por su combinación de interpretabilidad, rendimiento y tolerancia a datos imperfectos.",
+              "example": "¿Ingreso > $3,000? → Sí → ¿Tiene deuda activa? → No → ¿Antigüedad laboral > 2 años? → Sí → APROBAR CRÉDITO. Cada rama del árbol es una regla que el banco puede auditar.",
+              "color": "#34D399",
+              "children": [
+                {
+                  "id": "kmeans",
+                  "label": "K-Means",
+                  "subtitle": "Clustering por proximidad",
+                  "description": "Aunque técnicamente es un algoritmo de clustering (no un árbol), K-Means es el más usado en segmentación. Define K grupos y asigna cada punto al grupo cuyo centro está más cerca, iterando hasta estabilizarse.",
+                  "example": "K=4 segmentos de clientes Natura: Grupo 1 (alto valor, alta frecuencia), Grupo 2 (potencial dormido), Grupo 3 (compradores estacionales), Grupo 4 (en riesgo de abandono). Cada grupo recibe una estrategia diferente.",
+                  "color": "#34D399",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "svm",
+              "label": "Modelos de Kernel (SVM)",
+              "subtitle": "Support Vector Machines",
+              "description": "Encuentran la frontera de separación óptima entre clases en espacios de alta dimensión. Robustos con pocos datos y muchas variables. Menos usados hoy que antes, reemplazados en muchos casos por XGBoost o Deep Learning.",
+              "example": "Clasificar documentos legales en 50 categorías usando el texto completo (miles de palabras como variables). SVM maneja bien ese espacio de alta dimensión con relativamente pocos documentos de entrenamiento.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "deep-learning",
+              "label": "Deep Learning",
+              "subtitle": "Redes neuronales profundas",
+              "description": "Capas de neuronas artificiales que aprenden representaciones jerárquicas de los datos. Cada capa detecta patrones más abstractos que la anterior. Necesitan muchos datos y GPU. Base de visión, voz y lenguaje moderno.",
+              "example": "Capa 1 detecta bordes en una imagen. Capa 2 combina bordes en formas. Capa 3 combina formas en objetos. Capa 10 reconoce 'este es un defecto de producción tipo B'. Así aprende sin que nadie le explique qué buscar.",
+              "color": "#34D399",
+              "children": [
+                {
+                  "id": "cnns",
+                  "label": "CNNs",
+                  "subtitle": "Convolutional Neural Networks",
+                  "description": "Redes especializadas en datos visuales. Aplican filtros que detectan patrones locales (bordes, texturas, formas) y los combinan jerárquicamente. Base de casi toda Computer Vision moderna.",
+                  "example": "Control de calidad en planta AJE: la cámara toma una foto de cada botella. La CNN detecta si hay burbujas, deformaciones o etiquetas mal puestas en 0.03 segundos. Reemplaza a 8 inspectores visuales por turno.",
+                  "color": "#34D399",
+                  "children": []
+                },
+                {
+                  "id": "rnns",
+                  "label": "RNNs",
+                  "subtitle": "Recurrent Neural Networks",
+                  "description": "Redes especializadas en secuencias: texto, audio, series de tiempo. Tienen 'memoria' de pasos anteriores, lo que les permite entender contexto temporal. En gran parte reemplazadas por Transformers.",
+                  "example": "Predicción de ventas diarias de un SKU en Falabella. La RNN procesa los últimos 90 días de ventas, detecta patrones semanales y estacionales, y predice los próximos 30 días considerando el historial completo.",
+                  "color": "#34D399",
+                  "children": []
+                },
+                {
+                  "id": "transformers",
+                  "label": "Transformers",
+                  "subtitle": "Arquitectura de atención",
+                  "description": "Arquitectura que usa mecanismo de 'atención' para procesar todos los elementos de una secuencia simultáneamente y ponderar cuáles son más relevantes entre sí. Base de todos los LLMs modernos y modelos de imagen.",
+                  "example": "En la frase 'El banco rechazó el préstamo porque su historial era malo', el Transformer sabe que 'su' se refiere al cliente, no al banco. Entiende relaciones de larga distancia en el texto que las RNNs perdían.",
+                  "color": "#34D399",
+                  "children": [
+                    {
+                      "id": "genai",
+                      "label": "Generative AI",
+                      "subtitle": "Capacidad emergente de DL a escala",
+                      "description": "No es una rama separada de ML — es lo que ocurre cuando entrenas Transformers u otras arquitecturas de Deep Learning con datos masivos y GPU a escala. El modelo no solo predice: genera contenido nuevo.",
+                      "example": "GPT-4 es un Transformer entrenado con casi todo el texto de internet. A diferencia de un Transformer de clasificación, fue entrenado para predecir el siguiente token — lo que lo convierte en generador de texto coherente.",
+                      "color": "#A78BFA",
+                      "children": [
+                        {
+                          "id": "llms",
+                          "label": "LLMs",
+                          "subtitle": "Large Language Models",
+                          "description": "Modelos de lenguaje entrenados con texto masivo usando arquitectura Transformer. Generan, resumen, razonan, traducen y responden en lenguaje natural. La escala (billones de parámetros) es lo que los hace capaces.",
+                          "example": "ChatGPT, Claude y Gemini son LLMs. Un LLM empresarial en BCP puede resumir automáticamente 500 contratos en 10 minutos, extraer cláusulas clave y señalar inconsistencias — tarea que a un abogado le tomaría semanas.",
+                          "color": "#A78BFA",
+                          "children": []
+                        },
+                        {
+                          "id": "difusion",
+                          "label": "Modelos de Difusión",
+                          "subtitle": "Generación de imágenes y video",
+                          "description": "Arquitectura distinta a los LLMs. Aprenden a 'desruidar' imágenes gradualmente hasta generar una imagen coherente desde ruido aleatorio. Base de DALL-E, Stable Diffusion y Sora.",
+                          "example": "Natura necesita 20 variaciones de imagen para una campaña de producto. En lugar de contratar fotógrafos para cada variante, un modelo de difusión genera imágenes fotorrealistas del producto en diferentes ambientes en minutos.",
+                          "color": "#A78BFA",
+                          "children": []
+                        },
+                        {
+                          "id": "codegen",
+                          "label": "Modelos de Código",
+                          "subtitle": "Copilot, Codex, CodeLlama",
+                          "description": "LLMs especializados o ajustados para entender y generar código. Aumentan significativamente la productividad de equipos técnicos al autocompletar, explicar y depurar código.",
+                          "example": "Un Analytics Engineer en AJE escribe en lenguaje natural: 'dame las ventas por región del último trimestre excluyendo devoluciones'. El modelo genera el SQL completo. El ingeniero lo revisa y ejecuta en 30 segundos.",
+                          "color": "#A78BFA",
+                          "children": []
+                        },
+                        {
+                          "id": "encoders",
+                          "label": "Encoder Models",
+                          "subtitle": "BERT, RoBERTa — comprensión de texto",
+                          "description": "Transformers optimizados para entender texto, no para generarlo. Producen representaciones densas del significado. Usados en clasificación, búsqueda semántica y extracción de información.",
+                          "example": "Un buscador interno de BCP usa BERT para entender que 'cancelar tarjeta' y 'dar de baja mi tarjeta de crédito' son la misma intención, aunque las palabras sean diferentes. Devuelve los mismos resultados relevantes.",
+                          "color": "#A78BFA",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ml-eje3",
+          "label": "Eje 3 — Tareas que resuelve",
+          "subtitle": "Para qué se usa el modelo",
+          "description": "La tercera dimensión es el tipo de problema que resuelve el modelo. Una tarea puede implementarse con distintas familias de modelos — lo que importa es qué pregunta de negocio responde.",
+          "example": "Predecir si un cliente va a churnear (clasificación), cuánto va a gastar (regresión) y en qué grupo de comportamiento cae (clustering) son tres tareas distintas que pueden correr sobre los mismos datos.",
+          "color": "#34D399",
+          "children": [
+            {
+              "id": "clasificacion",
+              "label": "Clasificación",
+              "subtitle": "¿A qué categoría pertenece?",
+              "description": "El modelo predice a cuál de varias categorías pertenece un dato nuevo. La categoría puede ser binaria (sí/no) o múltiple (A/B/C/D). Es la tarea de ML más frecuente en negocios.",
+              "example": "¿Este cliente va a churnear en los próximos 30 días? (sí/no). ¿Esta transacción es fraude? (sí/no). ¿A qué segmento pertenece este ticket de soporte? (urgente / normal / baja prioridad).",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "regresion",
+              "label": "Regresión",
+              "subtitle": "¿Cuánto / qué valor tendrá?",
+              "description": "El modelo predice un valor numérico continuo. A diferencia de clasificación, la salida no es una categoría sino un número real. Se evalúa por qué tan cerca está la predicción del valor real.",
+              "example": "¿Cuántas unidades del SKU X se venderán la próxima semana en la tienda Y? El modelo predice 847 unidades. Si el real fue 891, el error es 5% — útil para optimizar inventario sin sobrestock ni quiebre.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "clustering",
+              "label": "Clustering",
+              "subtitle": "¿Qué grupos naturales existen?",
+              "description": "Agrupa datos sin etiquetas por similitud. El modelo descubre estructuras que no estaban definidas previamente. El número de grupos puede ser fijo (K-Means) o determinado por los datos (DBSCAN).",
+              "example": "Natura tiene 2 millones de clientes sin segmentar. Clustering descubre 6 grupos: 'embajadoras de marca', 'compradoras funcionales', 'oportunistas de precio', etc. Cada grupo recibe estrategia de marketing diferente.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "reduccion",
+              "label": "Reducción Dimensional",
+              "subtitle": "PCA, t-SNE, UMAP",
+              "description": "Comprime datos de muchas variables en pocas dimensiones conservando la mayor información posible. Usado para visualizar patrones, reducir ruido antes de modelar o preparar datos para otros modelos.",
+              "example": "Un dataset de transacciones BCP tiene 300 variables por cliente. PCA las comprime en 10 componentes que capturan el 90% de la variación. El modelo de fraude entrenado sobre esas 10 variables es más rápido y menos propenso a overfitting.",
+              "color": "#34D399",
+              "children": []
+            },
+            {
+              "id": "anomalias",
+              "label": "Detección de Anomalías",
+              "subtitle": "¿Qué es inusual?",
+              "description": "Identifica patrones que se desvían significativamente de lo normal. No necesita ejemplos de anomalías previas — aprende qué es 'normal' y señala lo que no encaja.",
+              "example": "Un cliente de BCP que siempre retira $200 en Lima de lunes a viernes, hoy retira $5,000 en Bangkok a las 3am. El modelo de anomalías lo detecta en milisegundos y bloquea la tarjeta preventivamente.",
+              "color": "#34D399",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "symbolic",
+      "label": "Symbolic AI",
+      "subtitle": "1.2 — IA Simbólica",
+      "description": "IA basada en lógica y reglas explícitas escritas por humanos. No aprende de datos — razona sobre conocimiento codificado. Predató al ML y aún es vigente en compliance, motores de reglas y sistemas de decisión auditables.",
+      "example": "El motor de aprobación de crédito de un banco en los años 90: 'si ingreso > $2,500 Y sin deudas vencidas Y antigüedad laboral > 1 año → APROBAR'. Cada regla fue escrita por un analista de riesgo, no aprendida por un modelo.",
+      "color": "#F59E0B",
+      "children": [
+        {
+          "id": "expert-systems",
+          "label": "Sistemas Expertos",
+          "subtitle": "Motores de reglas",
+          "description": "Base de conocimiento con reglas 'si/entonces' definidas por expertos del dominio. El motor de inferencia aplica las reglas para llegar a conclusiones. Completamente interpretable y auditable.",
+          "example": "Sistema de diagnóstico de fallas en equipos industriales AJE: si presión > 8 bar Y temperatura > 90°C Y vibración anormal → falla inminente en compresor → notificar mantenimiento preventivo. Cada regla viene de un técnico senior.",
+          "color": "#F59E0B",
+          "children": []
+        },
+        {
+          "id": "knowledge-graphs",
+          "label": "Knowledge Graphs",
+          "subtitle": "Ontologías y grafos de conocimiento",
+          "description": "Representan conocimiento como una red de entidades y relaciones. Permiten razonar sobre conexiones complejas entre objetos. Usados en detección de fraude relacional, recomendaciones y búsqueda semántica.",
+          "example": "Grafo de relaciones en BCP: Cliente A → tiene cuenta con → Empresa X → misma dirección que → Empresa Y → dirigida por → Cliente B → mismo teléfono que → Cliente A. El grafo detecta una red de fraude que las tablas SQL no verían.",
+          "color": "#F59E0B",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "label": "Reasoning, Search & Planning",
+      "subtitle": "1.3 — Capacidad transversal",
+      "description": "Capacidades de razonamiento que cruzan ML, RL, agentes y robótica. No pertenece solo a Simbólica — es un bloque que aparece en múltiples subcampos de IA. La diferencia con ML: aquí se razona explícitamente, no se aprende estadísticamente.",
+      "example": "Cuando un agente de IA recibe la tarea 'reserva el vuelo más barato a Madrid para la próxima semana', está usando planning (descompone la tarea), search (busca opciones) y razonamiento (compara y decide). No predice — planifica.",
+      "color": "#F59E0B",
+      "children": [
+        {
+          "id": "search",
+          "label": "Búsqueda y Planificación",
+          "subtitle": "A*, BFS, PDDL",
+          "description": "Algoritmos que exploran sistemáticamente espacios de posibilidades para encontrar la secuencia óptima de acciones. Usados en optimización logística, planificación de turnos y juegos.",
+          "example": "Optimización de rutas de distribución AJE en Lima: 47 puntos de entrega, 8 camiones, restricciones de horario y capacidad. El algoritmo encuentra la asignación óptima en segundos — lo que un humano tardaría horas en calcular.",
+          "color": "#F59E0B",
+          "children": []
+        },
+        {
+          "id": "probabilistic",
+          "label": "Razonamiento Probabilístico",
+          "subtitle": "Bayes, Redes Bayesianas, HMM",
+          "description": "Toma decisiones bajo incertidumbre usando probabilidades. En lugar de respuestas binarias, trabaja con grados de creencia que se actualizan con nueva evidencia.",
+          "example": "Modelo de riesgo de crédito BCP: P(default | ingreso=$2,000, deuda_actual=$500, historial=bueno) = 3.2%. Cada nueva transacción actualiza la probabilidad. Si el cliente empieza a retirar efectivo frecuentemente, la probabilidad sube a 8.7%.",
+          "color": "#F59E0B",
+          "children": []
+        },
+        {
+          "id": "decision-making",
+          "label": "Toma de Decisiones",
+          "subtitle": "MDPs, POMDP",
+          "description": "Formaliza cuándo y cómo actuar para maximizar un objetivo a lo largo del tiempo, considerando incertidumbre en los resultados. Base matemática del Aprendizaje por Refuerzo.",
+          "example": "¿Cuándo reordenar inventario de un SKU en Falabella? MDP considera: nivel actual de stock, variabilidad de demanda, tiempo de reposición, costo de quiebre vs. costo de sobrestock. Decide el punto de reorden óptimo dinámicamente.",
+          "color": "#F59E0B",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "nlp",
+      "label": "NLP",
+      "subtitle": "1.4 — Dominio: lenguaje",
+      "description": "Campo que trabaja con texto y lenguaje humano. Históricamente basado en reglas y modelos pequeños; hoy dominado por LLMs. Se cruza con ML y GenAI internamente — no es una técnica independiente sino un dominio de aplicación.",
+      "example": "Cuando un banco clasifica automáticamente las quejas de clientes, cuando Google Translate traduce un documento, o cuando un sistema extrae el monto y fecha de una factura escaneada — todos son NLP.",
+      "color": "#60A5FA",
+      "children": [
+        {
+          "id": "nlp-eje1",
+          "label": "Eje 1 — Tareas NLP",
+          "subtitle": "Qué problema resuelve",
+          "description": "NLP no es una técnica única — es un conjunto de tareas distintas sobre texto. Cada tarea tiene sus propios modelos, métricas y casos de uso empresariales.",
+          "example": "Un pipeline de atención al cliente puede combinar varias tareas NLP: primero clasifica la intención (tarea 1), luego extrae entidades como número de cuenta (tarea 3), luego genera una respuesta automática (tarea 6).",
+          "color": "#60A5FA",
+          "children": [
+            {
+              "id": "clasificacion-texto",
+              "label": "Clasificación de Texto",
+              "subtitle": "Etiquetar documentos",
+              "description": "Asigna una o varias categorías a un texto. Es la tarea NLP más frecuente en negocios. Puede ser binaria (spam/no spam) o multiclase (tipo de reclamo, departamento destino, nivel de urgencia).",
+              "example": "BCP recibe 3,000 mensajes de clientes al día. El clasificador los distribuye automáticamente: 40% son consultas de saldo (→ bot), 25% son reclamos de tarjeta (→ equipo especializado), 15% son fraudes reportados (→ prioridad alta).",
+              "color": "#60A5FA",
+              "children": []
+            },
+            {
+              "id": "sentimiento",
+              "label": "Análisis de Sentimiento",
+              "subtitle": "Positivo / Negativo / Neutral",
+              "description": "Detecta el tono emocional de un texto. Puede ser a nivel de documento completo o a nivel de aspecto específico (sentimiento sobre precio vs. sentimiento sobre servicio en la misma reseña).",
+              "example": "Natura monitorea 50,000 menciones en redes sociales al mes. El modelo detecta: 'me encanta el olor pero el empaque se dañó en 2 días' → positivo en producto, negativo en empaque. Marketing actúa específicamente sobre el problema de empaque.",
+              "color": "#60A5FA",
+              "children": []
+            },
+            {
+              "id": "ner",
+              "label": "Extracción de Información (NER)",
+              "subtitle": "Entidades: nombres, fechas, montos",
+              "description": "Identifica y extrae entidades específicas de texto no estructurado: personas, organizaciones, fechas, montos, lugares, números de contrato. Convierte texto libre en datos estructurados.",
+              "example": "Procesamiento automático de facturas en AJE: el modelo extrae proveedor='Corporación XYZ', fecha='15/03/2024', monto='$45,230', concepto='materias primas'. La factura pasa directamente al sistema contable sin digitación manual.",
+              "color": "#60A5FA",
+              "children": []
+            },
+            {
+              "id": "qa",
+              "label": "Question Answering (QA)",
+              "subtitle": "Preguntas sobre documentos",
+              "description": "El sistema responde preguntas específicas basándose en un corpus de documentos. Modernamente implementado con RAG + LLMs. La diferencia con un buscador: devuelve una respuesta, no una lista de documentos.",
+              "example": "Un analista de Natura pregunta: '¿cuáles son las condiciones de devolución para el canal de venta directa según el contrato 2024?' El sistema lee los 200 contratos activos y devuelve el párrafo exacto relevante en 3 segundos.",
+              "color": "#60A5FA",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "nlp-eje2",
+          "label": "Eje 2 — Enfoque técnico",
+          "subtitle": "Cómo está construido",
+          "description": "La misma tarea NLP puede resolverse con tres enfoques técnicos distintos. La elección depende de los datos disponibles, el presupuesto computacional y la flexibilidad requerida.",
+          "example": "Clasificar intenciones de clientes: con reglas (barato, frágil), con ML clásico (sólido con 1,000 ejemplos), con LLMs (flexible sin muchos datos). Cada enfoque tiene su punto de entrada adecuado.",
+          "color": "#60A5FA",
+          "children": [
+            {
+              "id": "reglas",
+              "label": "Sistemas basados en Reglas",
+              "subtitle": "Pre-NLP — no es IA",
+              "description": "Responden con lógica fija programada por humanos. No aprenden, no generalizan. Son deterministas: misma entrada → misma salida siempre. Útiles para casos simples y bien definidos.",
+              "example": "Alexa configurada para consultar KPIs: 'si el usuario dice [ventas] + [región] + [mes], consultar tabla ventas_regionales y responder con el valor'. No entiende variaciones. Si alguien dice 'ingresos' en lugar de 'ventas', falla. Esto es automatización, no IA.",
+              "color": "#60A5FA",
+              "children": []
+            },
+            {
+              "id": "nlp-clasico",
+              "label": "NLP Clásico con ML",
+              "subtitle": "Naive Bayes, SVM, TF-IDF",
+              "description": "Combina representaciones numéricas del texto (TF-IDF, word embeddings) con modelos de ML clásicos. Más flexible que reglas, más liviano que LLMs. Aún vigente cuando los datos son escasos o el dominio muy específico.",
+              "example": "Clasificador de categorías de productos en Falabella entrenado con 10,000 descripciones etiquetadas. TF-IDF convierte el texto en vectores numéricos; SVM aprende las fronteras entre 200 categorías. Corre en una laptop, sin GPU.",
+              "color": "#60A5FA",
+              "children": []
+            },
+            {
+              "id": "nlp-llm",
+              "label": "NLP con LLMs",
+              "subtitle": "Era actual — tendencia dominante",
+              "description": "Un LLM con prompts reemplaza pipelines NLP enteros. Más flexible, requiere menos datos etiquetados, pero más costoso computacionalmente. Es la tendencia dominante desde 2022.",
+              "example": "En lugar de entrenar un modelo de sentimiento, un clasificador de intenciones y un extractor de entidades por separado — un solo LLM con el prompt correcto hace las tres tareas juntas sobre el texto del cliente, sin datos de entrenamiento adicionales.",
+              "color": "#60A5FA",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vision",
+      "label": "Computer Vision",
+      "subtitle": "1.5 — Dominio: imágenes",
+      "description": "La IA interpreta imágenes, video y datos visuales. Basada en CNNs y, cada vez más, en Transformers visuales (ViT). No es una técnica independiente — es un dominio de aplicación que usa Deep Learning internamente.",
+      "example": "Cuando Instagram detecta caras para aplicar filtros, cuando un supermercado cuenta productos en anaquel, cuando una fábrica detecta defectos visuales en tiempo real — todos son Computer Vision.",
+      "color": "#60A5FA",
+      "children": [
+        {
+          "id": "clasificacion-imagen",
+          "label": "Clasificación de Imágenes",
+          "subtitle": "¿Qué hay en esta imagen?",
+          "description": "Asigna una etiqueta a una imagen completa. La tarea más básica de Computer Vision. El modelo responde '¿de qué trata esta imagen?' con una o varias categorías.",
+          "example": "Sistema de control de calidad en planta AJE: la cámara fotografía cada botella en la línea de producción. La CNN clasifica en 'OK', 'defecto de llenado', 'etiqueta mal puesta' o 'deformación'. Velocidad: 60 botellas por segundo.",
+          "color": "#60A5FA",
+          "children": []
+        },
+        {
+          "id": "deteccion",
+          "label": "Detección de Objetos",
+          "subtitle": "YOLO, R-CNN — dónde están",
+          "description": "No solo dice qué hay en la imagen sino dónde está cada objeto, dibujando un rectángulo (bounding box) alrededor. Puede detectar múltiples objetos de distintas clases simultáneamente.",
+          "example": "Auditoría de anaqueles en Falabella: una cámara recorre el pasillo y el modelo detecta cada SKU, su posición, si está en el lugar correcto y cuántas unidades quedan. El reporte de abastecimiento se genera automáticamente sin que nadie cuente.",
+          "color": "#60A5FA",
+          "children": []
+        },
+        {
+          "id": "ocr",
+          "label": "OCR",
+          "subtitle": "Reconocimiento óptico de caracteres",
+          "description": "Extrae texto de imágenes, documentos escaneados o fotografías. Convierte contenido visual no estructurado en texto editable y buscable. Punto de entrada para digitalizar procesos basados en papel.",
+          "example": "AJE recibe 800 facturas físicas al mes de proveedores. OCR las escanea y extrae: proveedor, RUC, fecha, monto, partidas. Los datos pasan directamente al ERP sin digitación manual. Error < 1% vs. 3-5% humano.",
+          "color": "#60A5FA",
+          "children": []
+        },
+        {
+          "id": "vlm",
+          "label": "Vision-Language Models",
+          "subtitle": "VLMs — visión + lenguaje",
+          "description": "Modelos que combinan comprensión visual y de lenguaje. Puedes mostrarle una imagen y hacerle preguntas en lenguaje natural sobre lo que ve. Cruza Computer Vision con LLMs.",
+          "example": "Inspector virtual de tienda: foto del anaquel → '¿cuántos productos de la marca X están mal posicionados? ¿hay productos vencidos visibles? ¿la señalética de precios está correcta?' El modelo responde analizando la imagen directamente.",
+          "color": "#A78BFA",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "speech",
+      "label": "Speech / Audio AI",
+      "subtitle": "1.6 — Dominio: voz y audio",
+      "description": "La IA procesa y genera voz y audio. Se conecta con NLP y LLMs para crear asistentes de voz completos. Cubre desde transcripción simple hasta agentes de voz en tiempo real que consultan bases de datos.",
+      "example": "Cuando le hablas a Siri y entiende tu pregunta, cuando un call center transcribe automáticamente todas las llamadas, o cuando un banco te autentica por voz — todos son Speech AI.",
+      "color": "#60A5FA",
+      "children": [
+        {
+          "id": "stt",
+          "label": "Speech-to-Text (STT)",
+          "subtitle": "Voz a texto",
+          "description": "Convierte audio hablado en texto escrito. Es el punto de entrada de cualquier sistema que procesa voz. La precisión moderna supera el 95% en condiciones normales.",
+          "example": "BCP transcribe automáticamente 10,000 llamadas diarias al call center. El texto se analiza con NLP para detectar quejas de fraude, calcular tiempo de resolución por tipo de problema e identificar qué agentes tienen mejor tasa de resolución.",
+          "color": "#60A5FA",
+          "children": []
+        },
+        {
+          "id": "tts",
+          "label": "Text-to-Speech (TTS)",
+          "subtitle": "Texto a voz",
+          "description": "Convierte texto escrito en voz sintética. La calidad moderna es casi indistinguible de voz humana, con control de tono, velocidad y emoción.",
+          "example": "Sistema de notificaciones de Natura para sus consultoras: 'Hola María, tu pedido #45823 está listo para retiro en el punto X. Tu comisión de este mes es S/. 1,240.' La voz suena natural, en el tono de marca de Natura.",
+          "color": "#60A5FA",
+          "children": []
+        },
+        {
+          "id": "voice-agent",
+          "label": "Voice Agent en tiempo real",
+          "subtitle": "STT + LLM + RAG + TTS",
+          "description": "Pipeline completo que conecta múltiples capacidades: el usuario habla (STT), el sistema entiende y razona (LLM), consulta datos reales (RAG / Function Calling), y responde en voz (TTS). Todo en menos de 2 segundos.",
+          "example": "Tu caso Alexa-KPI: el gerente pregunta '¿cuánto vendimos en la región norte esta semana?' → STT convierte la voz en texto → LLM interpreta la intención → Function Calling ejecuta el query en Redshift → TTS responde 'Las ventas de la región norte esta semana fueron S/. 2.3 millones, 8% por encima del objetivo.'",
+          "color": "#A78BFA",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "robotics",
+      "label": "Robotics / Embodied AI",
+      "subtitle": "1.7 — Dominio: sistemas físicos",
+      "description": "La IA controla sistemas físicos: brazos robóticos, drones, vehículos autónomos. Combina percepción (Computer Vision), razonamiento (Planning) y acción (Control). Es el dominio donde la IA toca el mundo físico.",
+      "example": "Un almacén de Amazon donde robots autónomos navegan entre estantes, identifican productos, los recogen y los llevan a la zona de empaque sin intervención humana — todo coordinado por IA en tiempo real.",
+      "color": "#F59E0B",
+      "children": [
+        {
+          "id": "percepcion",
+          "label": "Percepción",
+          "subtitle": "El robot interpreta el entorno",
+          "description": "El robot usa sensores, cámaras y LiDAR para construir una representación del entorno. Computer Vision procesa las imágenes; otros sensores proveen distancia, temperatura y orientación.",
+          "example": "Robot de inventario en almacén AJE: navega por los pasillos leyendo códigos QR en estantes con visión, midiendo distancias con LiDAR para no chocar, y construyendo un mapa 3D del almacén en tiempo real.",
+          "color": "#F59E0B",
+          "children": []
+        },
+        {
+          "id": "planning-robotics",
+          "label": "Planificación y Control",
+          "subtitle": "Cómo moverse para cumplir el objetivo",
+          "description": "Calcula la secuencia óptima de movimientos para ir del estado actual al estado objetivo, respetando restricciones físicas y evitando obstáculos. Combina Reasoning & Planning con modelos de control.",
+          "example": "Brazo robótico en línea de embotellado: dado 'poner tapa en botella en posición X', calcula la trayectoria exacta del brazo milímetro a milímetro para hacerlo en 0.3 segundos sin golpear las botellas adyacentes.",
+          "color": "#F59E0B",
+          "children": []
+        },
+        {
+          "id": "vla",
+          "label": "Vision-Language-Action (VLA)",
+          "subtitle": "Instrucción natural → acción física",
+          "description": "Modelos emergentes que reciben instrucciones en lenguaje natural, observan el entorno con visión, y ejecutan una secuencia de acciones físicas. Cruza VLMs, RL y robótica. Frontera actual del campo.",
+          "example": "Robot de laboratorio: 'prepara la muestra número 47 para análisis de pH' → el robot ve el laboratorio, identifica la muestra correcta entre 100, la lleva a la estación de análisis y ejecuta el protocolo. Sin programación específica para esa tarea.",
+          "color": "#A78BFA",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "label": "AI Agents",
+      "subtitle": "1.8 — Arquitectura de sistema",
+      "description": "No es una técnica de IA — es una arquitectura de sistema construida sobre LLMs, tools, memoria y planning. Un agente recibe una instrucción en lenguaje natural y ejecuta múltiples pasos de forma autónoma para completarla.",
+      "example": "Tarea al agente: 'analiza las ventas del Q3, identifica los 3 SKUs con peor rendimiento y redacta un reporte con recomendaciones para el equipo comercial.' El agente consulta la BD, procesa los datos, genera visualizaciones y escribe el reporte — solo.",
+      "color": "#A78BFA",
+      "children": [
+        {
+          "id": "agents-eje1",
+          "label": "Eje 1 — Nivel de autonomía",
+          "subtitle": "De menor a mayor",
+          "description": "Hay un espectro de sistemas desde chatbots simples hasta agentes multi-step completamente autónomos. El nivel de autonomía determina la complejidad de implementación y los riesgos operativos.",
+          "example": "Un call center puede tener: nivel 1 (FAQ estático), nivel 2 (chatbot con NLP que entiende intención), nivel 3 (agente que consulta el sistema de BCP y resuelve el reclamo solo), nivel 4 (múltiples agentes coordinados para casos complejos).",
+          "color": "#A78BFA",
+          "children": [
+            {
+              "id": "chatbot-reglas",
+              "label": "Chatbot con Reglas",
+              "subtitle": "Sin aprendizaje",
+              "description": "Respuestas predefinidas activadas por palabras clave o menús. No aprende, no entiende lenguaje natural, no maneja variaciones. Determinista y completamente controlable.",
+              "example": "Bot de FAQ en web de Natura: el usuario elige una opción del menú → el sistema devuelve el texto pregrabado. Si el usuario escribe 'quiero saber cómo devolver un producto' en lugar de hacer click en 'Devoluciones', el bot no entiende.",
+              "color": "#A78BFA",
+              "children": []
+            },
+            {
+              "id": "chatbot-llm",
+              "label": "Chatbot con LLM",
+              "subtitle": "Entiende lenguaje natural",
+              "description": "Usa un LLM para entender intención y generar respuestas flexibles. Puede manejar variaciones de lenguaje, contexto de conversación y preguntas no previstas. No ejecuta acciones externas — solo responde.",
+              "example": "Asistente de onboarding de BCP: el nuevo cliente puede preguntar de cualquier forma sobre productos, requisitos, tasas. El LLM entiende y responde con información del banco. Si pregunta '¿cuánto me cobran por sacar plata afuera?', entiende que es sobre comisiones internacionales.",
+              "color": "#A78BFA",
+              "children": []
+            },
+            {
+              "id": "agente",
+              "label": "Agente de IA",
+              "subtitle": "Planifica y actúa autónomamente",
+              "description": "El LLM no solo responde — planifica una secuencia de pasos, llama herramientas externas (APIs, SQL, búsqueda web), procesa los resultados y los usa para el siguiente paso. Autónomo dentro de los límites definidos.",
+              "example": "Agente de análisis en Natura: 'dame el top 10 de consultoras con mayor crecimiento este mes'. El agente: 1) escribe el query SQL, 2) lo ejecuta en Redshift, 3) procesa los resultados, 4) genera el ranking, 5) añade contexto sobre por qué crecieron. Todo sin intervención humana.",
+              "color": "#A78BFA",
+              "children": []
+            },
+            {
+              "id": "multi-agente",
+              "label": "Sistema Multi-Agente",
+              "subtitle": "Agentes coordinados",
+              "description": "Múltiples agentes especializados que colaboran, cada uno con un rol definido. Un orquestador coordina el flujo entre ellos. Permite paralelismo y especialización para tareas complejas.",
+              "example": "Pipeline de due diligence en AJE: Agente 1 extrae datos financieros, Agente 2 analiza contratos legales, Agente 3 verifica referencias de mercado, Agente 4 sintetiza todo en un reporte ejecutivo. Los 4 trabajan en paralelo y el orquestador integra los resultados.",
+              "color": "#A78BFA",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "agents-eje2",
+          "label": "Eje 2 — Componentes del agente",
+          "subtitle": "Qué necesita para funcionar",
+          "description": "Un agente de IA está compuesto por varios bloques que trabajan juntos. Entender cada componente permite diseñar agentes más robustos y depurar problemas cuando algo falla.",
+          "example": "Si el agente da respuestas desactualizadas, el problema probablemente está en la memoria o en el RAG. Si no puede ejecutar una acción, está en el Function Calling. Si toma decisiones erráticas, está en el LLM o en el prompt del orquestador.",
+          "color": "#A78BFA",
+          "children": [
+            {
+              "id": "llm-brain",
+              "label": "LLM — el cerebro",
+              "subtitle": "Razona y decide",
+              "description": "El LLM es el motor de razonamiento del agente. Interpreta la tarea, planifica los pasos, decide qué herramienta usar en cada momento y evalúa si el resultado obtenido es suficiente para continuar.",
+              "example": "El agente recibe: 'compara el desempeño de ventas de AJE vs. el año anterior'. El LLM decide: primero necesito datos de este año, luego datos del año anterior, luego calcular la diferencia, luego formatear el resultado. Eso es planificación.",
+              "color": "#A78BFA",
+              "children": []
+            },
+            {
+              "id": "function-calling",
+              "label": "Function Calling / Tools",
+              "subtitle": "Manos del agente",
+              "description": "Capacidad del LLM de invocar herramientas externas de forma estructurada. El LLM genera un llamado a una función con los parámetros correctos; el sistema lo ejecuta y devuelve el resultado al LLM.",
+              "example": "El agente necesita datos de ventas. El LLM genera: get_sales_data(region='norte', period='Q3-2024', metric='revenue'). El sistema ejecuta el query en Redshift y devuelve JSON con los datos. El LLM los procesa y continúa.",
+              "color": "#A78BFA",
+              "children": []
+            },
+            {
+              "id": "memoria",
+              "label": "Memoria / Contexto",
+              "subtitle": "El agente recuerda",
+              "description": "El agente mantiene el hilo de la conversación y los pasos anteriores dentro de una sesión. RAG puede extender esa memoria a documentos y bases de datos externas de largo plazo.",
+              "example": "En una sesión de análisis larga, el agente recuerda que 3 pasos atrás el usuario definió 'clientes activos' como los que compraron en los últimos 6 meses. No le preguntas de nuevo — lo usa consistentemente en todos los queries siguientes.",
+              "color": "#A78BFA",
+              "children": []
+            },
+            {
+              "id": "orquestador",
+              "label": "Orquestador",
+              "subtitle": "LangChain, CrewAI, AutoGen",
+              "description": "Framework que coordina LLM + tools + memoria + bucle de pasos. Define el flujo de trabajo del agente, maneja errores, controla cuántos pasos puede dar y decide cuándo la tarea está completa.",
+              "example": "LangChain como orquestador: define que el agente puede usar máximo 10 pasos, tiene acceso a 3 herramientas (SQL, búsqueda web, generador de gráficos), y debe detenerse si obtiene un error 3 veces seguidas. Es el 'director de orquesta'.",
+              "color": "#A78BFA",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
